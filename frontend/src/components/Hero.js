@@ -1,0 +1,41 @@
+import { Box, Button, Typography } from "@mui/material";
+
+const Hero = () => {
+  return (
+    <Box
+      sx={{
+        height: "70vh",
+        backgroundImage:
+          "url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        color: "white",
+        textShadow: "0 2px 4px rgba(0,0,0,0.5)",
+        textAlign: "center",
+        p: 2,
+      }}
+    >
+      <Typography variant="h2" fontWeight="bold">
+        Paradise Resort
+      </Typography>
+      <Typography variant="h5" mt={2}>
+        Escape • Relax • Rejuvenate
+      </Typography>
+
+      <Button
+        variant="contained"
+        color="primary"
+        sx={{ mt: 4, px: 4, py: 1.5, fontSize: "1.2rem" }}
+        href="#services"
+      >
+        Book Now
+      </Button>
+    </Box>
+  );
+};
+
+export default Hero;
