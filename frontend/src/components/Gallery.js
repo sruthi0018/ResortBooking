@@ -1,10 +1,6 @@
 import { Box, Grid, Typography } from "@mui/material";
 
-const images = [
-  "assets/one.jpg",
-  "assets/two.jpg",
-  "assets/three.jpg",
-];
+const images = ["assets/one.jpg", "assets/two.jpg", "assets/three.jpg"];
 
 const Gallery = () => {
   return (
@@ -13,9 +9,20 @@ const Gallery = () => {
         Gallery
       </Typography>
 
-      <Grid container spacing={3}  alignItems="center" justifyContent="center"> 
+      <Grid container spacing={3} alignItems="center" justifyContent="center">
         {images.map((img, index) => (
-          <Grid item xs={12} sm={4} key={index}>
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            key={index}
+            sx={{
+              transition: "0.3s",
+              "&:hover": {
+                transform: "scale(1.08)",
+              },
+            }}
+          >
             <img
               src={img}
               alt="Resort"

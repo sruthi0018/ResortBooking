@@ -1,6 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
+import { useState } from "react";
+import BookingDialog from "./BookNowDialog";
 
 const Hero = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <Box
       sx={{
@@ -30,10 +34,11 @@ const Hero = () => {
         variant="contained"
         color="primary"
         sx={{ mt: 4, px: 4, py: 1.5, fontSize: "1.2rem" }}
-        href="#services"
+        onClick={() => setOpen(true)}
       >
         Book Now
       </Button>
+      <BookingDialog open={open} onClose={() => setOpen(false)} />
     </Box>
   );
 };
