@@ -45,13 +45,30 @@ export function createBooking(data) {
   return async (dispatch) => {
     dispatch(slice.actions.startLoading());
     try {
-        console.log(data,"dd")
+      console.log(data, "dd");
       const response = await axios.post(
         `${process.env.REACT_APP_BASE_URL}/api/bookings`,
         data
       );
 
       dispatch(slice.actions.createBookingSuccess(response.data));
+      return response.data;
+    } catch (error) {
+      dispatch(slice.actions.hasError(error.message));
+      throw error;
+    }
+  };
+}
+
+export function getBookings() {
+  return async (dispatch) => {
+    dispatch(slice.actions.startLoading());
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_BASE_URL}/api/bookings`
+      );
+
+      dispatch(slice.actions.getBookingsSuccess(response.data));
       return response.data;
     } catch (error) {
       dispatch(slice.actions.hasError(error.message));

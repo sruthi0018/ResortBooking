@@ -19,9 +19,7 @@ import { createBooking } from "../redux/slices/bookingSlice";
 const schema = yup.object().shape({
   name: yup.string().required("Full Name is required"),
   email: yup.string().email("Invalid email").required("Email is required"),
-  phone: yup
-    .string()
-    .required("Phone number is required"),
+  phone: yup.string().required("Phone number is required"),
   checkIn: yup.string().required("Check-in date is required"),
   checkOut: yup.string().required("Check-out date is required"),
   guests: yup
@@ -43,9 +41,9 @@ const BookingDialog = ({ open, onClose }) => {
     resolver: yupResolver(schema),
   });
 
- const onSubmit = async (values) => {
+  const onSubmit = async (values) => {
     try {
-      console.log(values,'values')
+      console.log(values, "values");
       await dispatch(createBooking(values));
       reset();
       alert("Booking created!");
@@ -56,7 +54,13 @@ const BookingDialog = ({ open, onClose }) => {
   };
 
   return (
-    <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm" sx={{borderRadius: 10}}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      fullWidth
+      maxWidth="sm"
+      style={{ borderRadius: 10 }}
+    >
       <DialogTitle sx={{ m: 0, p: 2 }}>
         Book Your Stay
         <IconButton
@@ -75,7 +79,6 @@ const BookingDialog = ({ open, onClose }) => {
 
       <DialogContent dividers>
         <form id="bookingForm" onSubmit={handleSubmit(onSubmit)}>
-          {/* Single Column Fields */}
           <Box display="flex" flexDirection="column" gap={2} mt={1}>
             <TextField
               label="Full Name"
@@ -142,7 +145,7 @@ const BookingDialog = ({ open, onClose }) => {
           type="submit"
           form="bookingForm"
           variant="contained"
-          color="primary"
+          sx={{ backgroundColor: "#000" }}
         >
           Booking
         </Button>

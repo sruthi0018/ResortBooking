@@ -32,8 +32,7 @@ const Hero = () => {
 
       <Button
         variant="contained"
-        color="primary"
-        sx={{ mt: 4, px: 4, py: 1.5, fontSize: "1.2rem" }}
+        sx={{ mt: 4, px: 4, py: 1.5, fontSize: "1.2rem",backgroundColor:'#000' }}
         onClick={() => setOpen(true)}
       >
         Book Now
