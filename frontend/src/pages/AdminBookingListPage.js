@@ -64,7 +64,13 @@ const AdminBookingListPage = () => {
                 </TableCell>
               </TableRow>
             )}
-
+            {isLoading && (
+              <TableRow>
+                <TableCell colSpan={7} align="center" sx={{ py: 3 }}>
+                  Loading...
+                </TableCell>
+              </TableRow>
+            )}
             {bookings.map((b, index) => (
               <TableRow key={b._id || index}>
                 <TableCell>{index + 1}</TableCell>
